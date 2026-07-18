@@ -76,7 +76,3 @@ The script scans every `Week */Day */Project` folder, pulls each project's first
 ## 🤝 Feedback Welcome
 
 If you're a fellow learner or an experienced developer passing by — feel free to open an issue with feedback on any project. Code review is a gift, and I'll take all of it.
-
----
-
-*Built with stubbornness, one day at a time.*
