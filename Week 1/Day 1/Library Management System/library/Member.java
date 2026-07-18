@@ -12,6 +12,9 @@ public class Member {
         this.memberId = memberId;
         this.name = name;
         this.borrowedBooks = new ArrayList<>();
+
+        if(memberId == 0) throw new IllegalArgumentException("memberId must not be null or empty");
+        if(name == null) throw new IllegalArgumentException("name must not be null or empty");
     }
 
     public long getMemberId() {

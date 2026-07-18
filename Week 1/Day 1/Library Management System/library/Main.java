@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -20,19 +21,17 @@ public class Main {
             System.out.println("7. Quit");
             System.out.print("Enter your choice: ");
             int option = input.nextInt();
+            input.nextLine();
 
             switch(option){
                 case 1:
 
                     System.out.print("Enter Book ISBN: ");
-                    String isbn = Main.input.next();
-                    input.nextLine();
+                    String isbn = Main.input.nextLine();
                     System.out.print("Enter Book Title: ");
-                    String title = Main.input.next();
-                    input.nextLine();
+                    String title = Main.input.nextLine();
                     System.out.print("Enter Book Author: ");
-                    String author = Main.input.next();
-                    input.nextLine();
+                    String author = Main.input.nextLine();
                     System.out.print("Enter Book Year: ");
                     int year = Main.input.nextInt();
                     input.nextLine();
@@ -44,8 +43,7 @@ public class Main {
                     int memberID = Main.input.nextInt();
                     input.nextLine();
                     System.out.print("Enter Member Name: ");
-                    String memberName = Main.input.next();
-                    input.nextLine();
+                    String memberName = Main.input.nextLine();
 
                     library.addMember(new Member(memberID, memberName));
                     break;
@@ -54,21 +52,26 @@ public class Main {
                     long  borrowMemberId = input.nextLong();
                     input.nextLine();
                     System.out.print("Enter Book ISBN: ");
-                    String borrowIsbn = input.next();
-                    input.nextLine();
+                    String borrowIsbn = input.nextLine();
                     library.borrowBook(borrowMemberId, borrowIsbn);
                     break;
                 case 4:
                     System.out.print("Enter Member ID: ");
                     long  returnMemberId = input.nextLong();
+                    input.nextLine();
                     System.out.print("Enter Book ISBN: ");
-                    String returnIsbn = input.next();
+                    String returnIsbn = input.nextLine();
                     library.returnBook(returnMemberId, returnIsbn);
                     break;
                 case 5:
                     System.out.print("Enter Book's Author: ");
-                    String filterByAuthor = input.next();
-                    library.findByAuthor(filterByAuthor);
+                    String filterByAuthor = input.nextLine();
+                    List<Book> found = library.findByAuthor(filterByAuthor);
+                    if(found.isEmpty()){
+                        System.out.println("No books found with that author");
+                    }else{
+                        found.forEach(System.out::println);
+                    }
                     break;
                 case 6:
                     library.printCatalog();

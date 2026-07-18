@@ -15,6 +15,12 @@ public class Book {
         this.author = author;
         this.year = year;
         this.available = true;
+
+        if(isbn == null || isbn.isBlank()) throw new IllegalArgumentException("isbn must not be null or empty");
+        if(title == null || title.isBlank()) throw new IllegalArgumentException("title must not be null or empty");
+        if(author == null || author.isBlank()) throw new IllegalArgumentException("author must not be null or empty");
+        if(year < 1450) throw new IllegalArgumentException("year must not be less than 1450");
+
     }
 
     public String getIsbn() {

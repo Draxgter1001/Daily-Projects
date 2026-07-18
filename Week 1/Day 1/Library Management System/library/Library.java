@@ -105,7 +105,7 @@ public class Library {
     public List<Book> findByAuthor(String author){
         List<Book> result = new ArrayList<>();
         for(Book book : booksList){
-            if(book.getAuthor().equals(author)){
+            if(book.getAuthor().equalsIgnoreCase(author)){
                 result.add(book);
             }
         }
