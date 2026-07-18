@@ -13,7 +13,7 @@ public class Main {
             System.out.println("Please choose from the following options: ");
             System.out.println("1. Add Book");
             System.out.println("2. Add Member");
-            System.out.println("3. Borrow Book");
+            System.out.println("3. Borrow Book (Each member can only borrow up to 3 books)");
             System.out.println("4. Return Book");
             System.out.println("5. Find Book By Author");
             System.out.println("6. View The Library");

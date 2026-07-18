@@ -8,19 +8,6 @@ public class Library {
     public Library() {
         booksList = new ArrayList<>();
         membersList = new ArrayList<>();
-    };
-
-    public List<Book> getBooks() {
-        return booksList;
-    }
-    public void setBooks(List<Book> books) {
-        this.booksList = books;
-    }
-    public List<Member> getMembers() {
-        return membersList;
-    }
-    public void setMembers(List<Member> membersList) {
-        this.membersList = membersList;
     }
 
     private Member findMember(long memberId){
@@ -46,11 +33,12 @@ public class Library {
             booksList = new ArrayList<>();
         }
 
-        if(!booksList.contains(book.getIsbn())){
+        if(findBook(book.getIsbn()) == null) {
             booksList.add(book);
             System.out.println("Book added successfully!");
         }else {
             System.out.println("Book already exists");
+            System.out.println();
         }
     }
 
@@ -59,28 +47,32 @@ public class Library {
             membersList = new ArrayList<>();
         }
 
-        if(!membersList.contains(member.getMemberId())){
+        if(findMember(member.getMemberId()) == null) {
             membersList.add(member);
             System.out.println("Member added successfully!");
         }else{
             System.out.print("Member already exists");
+            System.out.println();
         }
     }
 
     public boolean borrowBook(long memberId, String isbn){
         Member member = findMember(memberId);
-        if(member == null){
-            System.out.println("Member not found!");
+        if(member == null ||  member.getBorrowedBooks().size() >= 3){
+            System.out.println("Member not found or member already borrowed!");
             return false;
         }
         Book book = findBook(isbn);
         if(book == null){
-            System.out.println("Book not found!");
+            System.out.println("Book not found or isbn not found!");
             return false;
         }
-        book.setAvailable(false);
-        member.borrowBook(book);
-        System.out.println("Book borrowed successfully!");
+
+        if(book.getIsbn().equals(isbn) && member.getMemberId() == memberId && member.getBorrowedBooks().size() < 3){
+            book.setAvailable(false);
+            member.borrowBook(book);
+            System.out.println("Book borrowed successfully!");
+        }
         return true;
     }
 
@@ -97,9 +89,12 @@ public class Library {
             return false;
         }
 
-        book.setAvailable(true);
-        member.returnBook(book);
-        System.out.println("Book returned successfully!");
+        if(book.getIsbn().equals(isbn) && member.getMemberId() == memberId && !member.getBorrowedBooks().isEmpty()){
+            book.setAvailable(true);
+            member.returnBook(book);
+            System.out.println("Book returned successfully!");
+        }
+
         return true;
     }
 
@@ -107,11 +102,11 @@ public class Library {
         if(membersList == null) {
             membersList = new ArrayList<>();
         }
-       for(int i = 0; i < booksList.size(); i++){
-           if(booksList.get(i).getAuthor().equals(author)){
-               System.out.println(booksList.get(i));
-           }
-       }
+        for (Book book : booksList) {
+            if (book.getAuthor().equals(author)) {
+                System.out.println(book);
+            }
+        }
     }
 
     public void printCatalog(){
