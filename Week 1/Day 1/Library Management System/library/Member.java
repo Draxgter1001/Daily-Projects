@@ -12,6 +12,8 @@ public class Member {
         this.borrowedBooks = borrowedBooks;
     }
 
+    public Member() {};
+
     public long getMemberId() {
         return memberId;
     }
