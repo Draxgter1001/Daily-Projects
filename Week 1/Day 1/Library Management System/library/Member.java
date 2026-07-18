@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Member {
@@ -6,13 +7,11 @@ public class Member {
     private String name;
     private List<Book> borrowedBooks;
 
-    public Member(long memberId, String name, List<Book> borrowedBooks) {
+    public Member(long memberId, String name) {
         this.memberId = memberId;
         this.name = name;
-        this.borrowedBooks = borrowedBooks;
+        this.borrowedBooks = new ArrayList<>();
     }
-
-    public Member() {};
 
     public long getMemberId() {
         return memberId;
@@ -31,8 +30,13 @@ public class Member {
     public List<Book> getBorrowedBooks() {
         return List.copyOf(borrowedBooks);
     }
-    public void setBorrowedBooks(List<Book> borrowedBooks) {
-        this.borrowedBooks = borrowedBooks;
+
+    public void borrowBook(Book book) {
+        this.borrowedBooks.add(book);
+    }
+
+    public void returnBook(Book book) {
+        this.borrowedBooks.remove(book);
     }
 
     @Override
