@@ -24,42 +24,38 @@ public class Main {
             switch(option){
                 case 1:
 
-                    Book book = new Book();
                     System.out.print("Enter Book ISBN: ");
                     String isbn = Main.input.next();
+                    input.nextLine();
                     System.out.print("Enter Book Title: ");
                     String title = Main.input.next();
                     input.nextLine();
                     System.out.print("Enter Book Author: ");
                     String author = Main.input.next();
+                    input.nextLine();
                     System.out.print("Enter Book Year: ");
                     int year = Main.input.nextInt();
                     input.nextLine();
 
-                    book.setIsbn(isbn);
-                    book.setTitle(title);
-                    book.setAuthor(author);
-                    book.setYear(year);
-
-                    library.addBook(book);
+                    library.addBook(new Book(isbn, title, author, year));
                     break;
                 case 2:
                     System.out.print("Enter Member ID: ");
                     int memberID = Main.input.nextInt();
+                    input.nextLine();
                     System.out.print("Enter Member Name: ");
                     String memberName = Main.input.next();
+                    input.nextLine();
 
-                    Member member = new Member(memberID, memberName);
-                    member.setMemberId(memberID);
-                    member.setName(memberName);
-
-                    library.addMember(member);
+                    library.addMember(new Member(memberID, memberName));
                     break;
                 case 3:
                     System.out.print("Enter Member ID: ");
                     long  borrowMemberId = input.nextLong();
+                    input.nextLine();
                     System.out.print("Enter Book ISBN: ");
                     String borrowIsbn = input.next();
+                    input.nextLine();
                     library.borrowBook(borrowMemberId, borrowIsbn);
                     break;
                 case 4:

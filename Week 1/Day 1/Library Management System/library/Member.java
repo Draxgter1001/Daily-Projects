@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Member {
 
@@ -16,15 +17,9 @@ public class Member {
     public long getMemberId() {
         return memberId;
     }
-    public void setMemberId(long memberId) {
-        this.memberId = memberId;
-    }
 
     public String getName() {
         return name;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
 
     public List<Book> getBorrowedBooks() {
@@ -42,5 +37,17 @@ public class Member {
     @Override
     public String toString() {
         return "Member's Details: " + getMemberId() + ", " + getName() + ". Books Borrowed: " + getBorrowedBooks();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if ( !(o instanceof Member other)) return false;
+        return memberId == other.memberId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(memberId);
     }
 }
