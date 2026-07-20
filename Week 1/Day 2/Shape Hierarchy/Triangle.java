@@ -1,18 +1,20 @@
 public class Triangle extends Shape {
 
-    private double a;
-    private double b;
-    private double c;
+    private final double a;
+    private final double b;
+    private final double c;
 
     public Triangle(double a, double b, double c){
         super("Triangle");
-        if(!(a + b > c)){
+        if(!(a > 0 && b > 0 && c > 0)){
+            throw new IllegalArgumentException("All sides must be positive!");
+        }else if(a + b <= c || a + c <= b || b + c <= a){
             throw new IllegalArgumentException("What you entered is not a valid triangle!");
-        }else if(a > 0 && b > 0 && c > 0){
+        }else {
             this.a = a;
             this.b = b;
             this.c = c;
-        }else throw new IllegalArgumentException("All sides must be positive!");
+        }
     }
 
     public double getA(){
@@ -29,7 +31,7 @@ public class Triangle extends Shape {
 
     @Override
     public double perimeter() {
-        return (getA() + getB() + getC()) / 2;
+        return (getA() + getB() + getC());
     }
 
     //Heron's formula
@@ -39,5 +41,8 @@ public class Triangle extends Shape {
         return Math.sqrt(s* (s - getA()) * (s - getB()) * (s - getC()));
     }
 
-
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

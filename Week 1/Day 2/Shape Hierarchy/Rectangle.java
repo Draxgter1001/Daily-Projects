@@ -1,7 +1,7 @@
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements Drawable {
 
-    private double width;
-    private double height;
+    private final double width;
+    private final double height;
 
     public Rectangle(double width, double height) {
         super("Rectangle");
@@ -29,5 +29,23 @@ public class Rectangle extends Shape {
         return (getWidth() + getHeight()) * 2;
     }
 
+    @Override
+    public String toString() {
+        return getName();
+    }
 
+    @Override
+    public void draw() {
+        System.out.println("Drawing a " + getName() + " [" + getWidth() + " x " + getHeight() + "]");
+
+        int w = (int) getWidth();
+        int h = (int) getHeight();
+
+        for(int i = 0; i < h; i++){
+            for(int j = 0; j < w; j++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
 }

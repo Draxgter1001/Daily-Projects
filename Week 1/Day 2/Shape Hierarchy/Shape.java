@@ -3,8 +3,8 @@ public abstract class Shape {
     private String name;
 
     public Shape(String name) {
+        if(name == null || name.isBlank()) throw new IllegalArgumentException("name must not be null or empty!");
         this.name = name;
-        if(name == null) throw new IllegalArgumentException("name must not be null or empty!");
     }
 
     public String getName(){
