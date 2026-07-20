@@ -1,6 +1,6 @@
 public abstract class Shape {
 
-    private String name;
+    private final String name;
 
     public Shape(String name) {
         if(name == null || name.isBlank()) throw new IllegalArgumentException("name must not be null or empty!");
