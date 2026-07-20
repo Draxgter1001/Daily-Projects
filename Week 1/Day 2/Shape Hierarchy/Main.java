@@ -5,6 +5,7 @@ import java.util.Scanner;
 /*
  Shape is an abstract class because we are using it to define the characteristic of our object types, therefore specifying
  what an object is.
+
  Drawable is an interface because we are defining the capabilities of our object types, in this case, capable of being
  able to be drawn itself, therefore specifying what the objects are capable do.
 
