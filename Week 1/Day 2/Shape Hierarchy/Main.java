@@ -73,18 +73,18 @@ public class Main {
     public static void getMaxArea(List<Shape> shapeList){
         double maxArea = 0;
         String shapeName = "";
-        for(int i = 0; i < shapeList.size(); i++){
-            if(shapeList.get(i).area() > maxArea){
-                maxArea = shapeList.get(i).area();
-                shapeName = shapeList.get(i).toString();
+        for (Shape shape : shapeList) {
+            if (shape.area() > maxArea) {
+                maxArea = shape.area();
+                shapeName = shape.toString();
             }
         }
         System.out.println("Highest Area: " + shapeName + " is " + maxArea);
     }
 
     public static void printShapeList(List<Shape> shapeList){
-        for(int i = 0; i < shapeList.size(); i++){
-            System.out.println(shapeList.get(i).describe());
+        for (Shape shape : shapeList) {
+            System.out.println(shape.describe());
         }
     }
 
