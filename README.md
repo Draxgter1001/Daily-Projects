@@ -44,18 +44,20 @@ This timeline is **generated automatically** by a GitHub Action every time a new
 
 <!-- TIMELINE:START -->
 
-**1 project completed so far** &nbsp;|&nbsp; one per day 🔥
+**2 projects completed so far** &nbsp;|&nbsp; one per day 🔥
 
 ```mermaid
 timeline
     title My Java Journey — One Project a Day
     section Week 1
         Day 1 : Library Management System
+        Day 2 : Shape Hierarchy
 ```
 
 | # | Week | Day | Project | Completed |
 |---|------|-----|---------|-----------|
-| 1 | Week 1 | Day 1 | [Library Management System](Week%201/Day%201/Library%20Management%20System) | 18 Jul 2026 |
+| 1 | Week 1 | Day 1 | [Library Management System](Week%201%5CDay%201%5CLibrary%20Management%20System) | 18 Jul 2026 |
+| 2 | Week 1 | Day 2 | [Shape Hierarchy](Week%201%5CDay%202%5CShape%20Hierarchy) | 20 Jul 2026 |
 
 <!-- TIMELINE:END -->
 
