@@ -1,21 +1,33 @@
-public class Rectangle {
+public class Rectangle extends Shape {
 
-    private float width;
-    private float height;
+    private double width;
+    private double height;
 
-    public Rectangle(float width, float height) {
+    public Rectangle(double width, double height) {
+        super("Rectangle");
         if(width > 0 && height > 0){
             this.width = width;
             this.height = height;
         }else throw new IllegalArgumentException("width or height cannot be negative");
     }
 
-    public float getWidth() {
+    public double getWidth() {
         return width;
     }
 
-    public float getHeight() {
+    public double getHeight() {
         return height;
     }
+
+    @Override
+    public double area(){
+        return getWidth() * getHeight();
+    }
+
+    @Override
+    public double perimeter() {
+        return (getWidth() + getHeight()) * 2;
+    }
+
 
 }

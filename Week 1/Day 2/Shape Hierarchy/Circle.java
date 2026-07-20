@@ -1,7 +1,7 @@
 public class Circle extends Shape {
-    private float radius;
+    private double radius;
 
-    public Circle(float radius) {
+    public Circle(double radius) {
         super("Circle");
         if(radius > 0){
             this.radius = radius;
@@ -9,7 +9,7 @@ public class Circle extends Shape {
 
     }
 
-    public float getRadius() {
+    public double getRadius() {
         return radius;
     }
 
@@ -22,4 +22,5 @@ public class Circle extends Shape {
     public double perimeter() {
         return 2 * Math.PI * getRadius();
     }
+
 }
