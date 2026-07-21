@@ -31,6 +31,7 @@ public class Account {
             throw new InvalidAmountException("You cannot enter a negative amount!");
         }else{
             this.balance += amount;
+            System.out.println("Deposited " + amount + " to " + getAccountNumber());
         }
     }
 
@@ -42,5 +43,10 @@ public class Account {
         }else{
             this.balance -= amount;
         }
+    }
+
+    @Override
+    public String toString(){
+        return "Account Number: " + getAccountNumber() + " Owner: " + getOwner() + " Balance: " + getBalance();
     }
 }

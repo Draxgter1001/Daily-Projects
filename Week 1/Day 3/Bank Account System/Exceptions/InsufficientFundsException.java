@@ -10,4 +10,11 @@ public class InsufficientFundsException extends BankException{
         this.balance = balance;
         this.requested = requested;
     }
+
+    public double getBalance() {
+        return balance;
+    }
+    public double getRequested() {
+        return requested;
+    }
 }
