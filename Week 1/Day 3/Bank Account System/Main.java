@@ -7,14 +7,9 @@ import Exceptions.InvalidAmountException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/*
-Added a "finally" block for the "choice" variable, and it starts an infinite loop, I do not know why, therefore I am
-not using it in this context.
- */
-
 public class Main {
 
-    public static void main(String[] args) throws AccountNotFoundException, InvalidAmountException, InsufficientFundsException {
+    public static void main(String[] args)  {
         Scanner input = new Scanner(System.in);
         Bank bank = new Bank();
 
@@ -64,6 +59,7 @@ public class Main {
                         input.nextLine();
                         Account currentAccount = bank.getAccount(accountNumber);
                         currentAccount.deposit(amount);
+                        System.out.println("Deposited " + amount + " to " + currentAccount.getAccountNumber());
                     }catch(AccountNotFoundException e){
                         System.out.println("Account not found");
                     }catch(InvalidAmountException e){
@@ -80,11 +76,12 @@ public class Main {
                         Account currentAccount2 = bank.getAccount(accountNumber2);
                         currentAccount2.withdraw(amount2);
                     }catch(AccountNotFoundException e){
-                        System.out.println("Account not found");
+                        System.out.println(e.getMessage());
                     }catch(InvalidAmountException e){
                         System.out.println("Invalid amount");
                     }catch(InsufficientFundsException e){
-                        System.out.println("Insufficient funds for withdraw");
+                        System.out.printf("Declined. You have %.2f but tried to withdraw %.2f .%n", e.getBalance(),
+                                e.getRequested());
                     }
                     break;
 
@@ -98,17 +95,23 @@ public class Main {
                         System.out.println("Enter Account Number to transfer: ");
                         String toAccountNumber = input.nextLine();
                         bank.transfer(fromAccountNumber, toAccountNumber, amountToTransfer);
-                    }catch(AccountNotFoundException e){
-                        System.out.println("Account not found");
-                    }catch (BankException e){
-                        System.out.println("Insufficient funds for transfer");
+                        System.out.println("Transferring " + fromAccountNumber + " to " + toAccountNumber);
+                        System.out.println("Transfer completed");
+                        System.out.println("Your account balance is " + bank.getAccount(fromAccountNumber).getBalance());
+                    } catch (BankException e){
+                        System.out.println(e.getMessage());
                     }
                     break;
 
                 case 5:
-                    System.out.println("Enter Account Number: ");
-                    String viewBalanceAccountNumber = input.nextLine();
-                    System.out.println("Current balance: " + bank.getAccount(viewBalanceAccountNumber).getBalance());
+                    try{
+                        System.out.println("Enter Account Number: ");
+                        String viewBalanceAccountNumber = input.nextLine();
+                        System.out.println("Current balance: " + bank.getAccount(viewBalanceAccountNumber).getBalance());
+                    }catch(AccountNotFoundException e){
+                        System.out.println(e.getMessage());
+                    }
+
                     break;
                 case 6:
                     demo();

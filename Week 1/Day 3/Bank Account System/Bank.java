@@ -8,8 +8,8 @@ import java.util.Map;
 
 public class Bank {
     private Map<String, Account> accounts = new HashMap<>();
+    private int nextId = 1000;
     public Account openAccount(String owner, double initialAmount){
-        int nextId = 1000;
         String accountNumber = "ACC-" + (++nextId);
         Account account = new Account(accountNumber, owner, initialAmount);
         accounts.put(accountNumber, account);
@@ -31,9 +31,6 @@ public class Bank {
         fromAccount.withdraw(amount);
         try {
             toAccount.deposit(amount);
-            System.out.println("Transferring " + fromAccount.getAccountNumber() + " to " + toAccount.getAccountNumber());
-            System.out.println("Transfer completed");
-            System.out.println("Your account balance is " + fromAccount.getBalance());
         }catch (InvalidAmountException e){
             fromAccount.deposit(amount);
             throw new BankException("Transfer failed, rolled back: " + e.getMessage());

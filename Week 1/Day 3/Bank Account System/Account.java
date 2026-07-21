@@ -31,7 +31,6 @@ public class Account {
             throw new InvalidAmountException("You cannot enter a negative amount!");
         }else{
             this.balance += amount;
-            System.out.println("Deposited " + amount + " to " + getAccountNumber());
         }
     }
 
