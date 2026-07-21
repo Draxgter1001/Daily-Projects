@@ -44,7 +44,7 @@ This timeline is **generated automatically** by a GitHub Action every time a new
 
 <!-- TIMELINE:START -->
 
-**2 projects completed so far** &nbsp;|&nbsp; one per day 🔥
+**3 projects completed so far** &nbsp;|&nbsp; one per day 🔥
 
 ```mermaid
 timeline
@@ -52,12 +52,14 @@ timeline
     section Week 1
         Day 1 : Library Management System
         Day 2 : Shape Hierarchy
+        Day 3 : Bank Account System
 ```
 
 | # | Week | Day | Project | Completed |
 |---|------|-----|---------|-----------|
 | 1 | Week 1 | Day 1 | [Library Management System](Week%201%5CDay%201%5CLibrary%20Management%20System) | 18 Jul 2026 |
 | 2 | Week 1 | Day 2 | [Shape Hierarchy](Week%201%5CDay%202%5CShape%20Hierarchy) | 20 Jul 2026 |
+| 3 | Week 1 | Day 3 | [Bank Account System](Week%201%5CDay%203%5CBank%20Account%20System) | 21 Jul 2026 |
 
 <!-- TIMELINE:END -->
 
