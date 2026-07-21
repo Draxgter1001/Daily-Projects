@@ -121,10 +121,9 @@ public class Main {
         }
     }
 
-    static int demo(){
+    static void demo(){
         try{
             System.out.println("in try");
-            return 1;
         }finally {
             System.out.println("finally runs BEFORE the method actually returns");
         }
